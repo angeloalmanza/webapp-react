@@ -1,7 +1,32 @@
+import { NavLink } from "react-router-dom";
+
 const HeaderLayout = () => {
+    const navLinks = [
+        {
+            path: "/",
+            title: "Home",
+        },
+        {
+            path: "/movies",
+            title: "Film",
+        },
+    ];
+
     return (
         <>
-            <h1>Questo è l'header</h1>
+            <ul>
+              {navLinks.map((curLink, index) => (
+                <li className="nav-item" key={index}>
+                  <NavLink
+                    className="nav-link"
+                    aria-current="page"
+                    to={curLink.path}
+                  >
+                    {curLink.title}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
         </>
     )
 }
