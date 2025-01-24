@@ -14,11 +14,10 @@ const HeaderLayout = () => {
 
     return (
         <>
-            <ul>
+            <ul className="list-unstyled">
               {navLinks.map((curLink, index) => (
-                <li className="nav-item" key={index}>
+                <li className="text-decoration-underline" key={index}>
                   <NavLink
-                    className="nav-link"
                     aria-current="page"
                     to={curLink.path}
                   >
