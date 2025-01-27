@@ -97,7 +97,7 @@ const MoviesPage = () => {
             {movies.length > 0 ? (
                 <div className="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
                     {movies.map((curMovie) => (
-                        <div className="col" key={curMovie.id}>
+                        <div className="col" key={curMovie.slug}>
                             <MovieCard movie={curMovie} />
                         </div>
                     ))}

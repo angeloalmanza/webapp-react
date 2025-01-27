@@ -4,13 +4,13 @@ import { useParams } from "react-router-dom";
 import ReviewCard from "../components/ReviewCard";
 
 const DetailsPage = () => {
-    const { id } = useParams();
+    const { slug } = useParams();
     const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
     const [movie, setMovie] = useState(null);
 
     useEffect(() => {
-        axios.get(`${backendUrl}/movies/${id}`).then(resp => {
+        axios.get(`${backendUrl}/movies/${slug}`).then(resp => {
             setMovie(resp.data.data);
         })
     }, []);
