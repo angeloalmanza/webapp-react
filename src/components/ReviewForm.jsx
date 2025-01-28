@@ -1,17 +1,38 @@
-const ReviewForm = ({onSubmitFunction, formData, setFormData}) => {
+import { useState } from "react";
+
+const ReviewForm = ({ onSubmitFunction, formData, setFormData }) => {
     const availableVotes = Array.from(Array(6).keys());
+
+    const [error, setError] = useState(false);
 
     const setFieldValue = (event) => {
         const value = event.target.value;
         const fieldName = event.target.name;
-        const newFormData = {...formData};
+        const newFormData = { ...formData };
         newFormData[fieldName] = value;
         setFormData(newFormData);
     }
 
+    const isDataValid = () => {
+        if (
+            formData.name.length < 4 ||
+            formData.vote < 0 ||
+            formData.vote > 5 ||
+            (formData.text.length > 0 && formData.length < 6)
+        ) {
+            return false;
+        }
+        return true;
+    };
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        onSubmitFunction(formData);
+        setError(false);
+        if (!isDataValid()) {
+            setError(true);
+        } else {
+            onSubmitFunction(formData);
+        }
     }
 
     return (
