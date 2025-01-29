@@ -24,7 +24,7 @@ const DetailsPage = () => {
     }
 
     useEffect(() => {
-       getMovie();
+        getMovie();
     }, []);
 
     const storeReview = (formData) => {
@@ -68,9 +68,9 @@ const DetailsPage = () => {
                             <div className="col-8">
                                 <h2 className="text-center">Aggiungi una nuova recensione</h2>
                                 <ReviewForm
-                                formData={formData}
-                                setFormData={setFormData}
-                                onSubmitFunction={storeReview} 
+                                    formData={formData}
+                                    setFormData={setFormData}
+                                    onSubmitFunction={storeReview}
                                 />
                             </div>
                         </div>

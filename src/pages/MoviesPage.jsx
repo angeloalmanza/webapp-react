@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
+import { Link } from "react-router-dom";
 
 const MoviesPage = () => {
     const backendUrl = import.meta.env.VITE_BACKEND_URL;
@@ -47,6 +48,10 @@ const MoviesPage = () => {
 
     return (
         <>
+            <div>
+                <Link to="/movies/create" className="btn btn-primary">Aggiungi un nuovo film</Link>
+            </div>
+
             <div className="my-3 d-flex">
                 {/* Input per il titolo */}
                 <input
@@ -92,7 +97,7 @@ const MoviesPage = () => {
                     Cerca
                 </button>
             </div>
-            
+
             <h1>Lista dei film</h1>
             {movies.length > 0 ? (
                 <div className="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
