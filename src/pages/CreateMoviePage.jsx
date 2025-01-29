@@ -37,6 +37,7 @@ const CreateMoviePage = () => {
         const dataToSend = new FormData();
 
         for (let key in movieData) {
+            console.log(`Adding ${key}:`, movieData[key]);
             dataToSend.append(key, movieData[key]);
         }
 
@@ -118,6 +119,7 @@ const CreateMoviePage = () => {
                         className="form-control"
                         name="image"
                         id="image"
+                        onChange={handleInputChange}
                     />
                 </div>
                 <button className="btn btn-primary">Aggiungi</button>
